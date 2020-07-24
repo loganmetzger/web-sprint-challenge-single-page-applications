@@ -12,7 +12,8 @@ const initialFormValues = {
   pineapple: false,
   salami: false,
   anchovies: false,
-  cheese: false
+  cheese: false,
+  glutenFree: false
 }
 
 const App = () => {
@@ -38,6 +39,8 @@ const App = () => {
     anchovies: yup
       .boolean(),
     cheese: yup
+      .boolean(),
+    glutenFree: yup
       .boolean()
     })
     

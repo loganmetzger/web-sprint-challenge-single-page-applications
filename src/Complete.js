@@ -22,6 +22,7 @@ export default function Complete(props) {
                         {za.salami && <p>Salami</p>}
                         {za.anchovies && <p>Anchovies</p>}
                         {za.cheese && <p>Cheese</p>}
+                        {za.glutenFree && <p>GlutenFree</p>}
                     </div>
                 )
             })}

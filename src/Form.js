@@ -1,4 +1,5 @@
 import React from 'react'
+import Switch from './Switch'
 
 export default function Form(props) {
 
@@ -66,6 +67,10 @@ export default function Form(props) {
                         value={form.cheese}
                         onChange={handleChange}
                     />
+                </label>
+                <label>
+                    Gluten Free Crust:
+                    <Switch form={form} />
                 </label>
                 <button className="submit" disabled={disable} type='submit'>Submit Order!</button>
             </form>
