@@ -7,7 +7,7 @@ export default function Complete(props) {
 
     return(
         <div>
-            <p>Order submitted!</p>
+            <p>Congrats! Pizza is on it's way!</p>
             {pizza.map(za => {
                 return(
                     <div> 
