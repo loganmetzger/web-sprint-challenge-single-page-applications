@@ -70,7 +70,7 @@ export default function Form(props) {
                 </label>
                 <label>
                     Gluten Free Crust:
-                    <Switch form={form} />
+                    <Switch handleChange={handleChange} form={form} />
                 </label>
                 <button className="submit" disabled={disable} type='submit'>Submit Order!</button>
             </form>
