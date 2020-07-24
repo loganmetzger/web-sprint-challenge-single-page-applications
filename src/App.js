@@ -3,7 +3,6 @@ import { Switch, Route, useHistory } from 'react-router-dom'
 import Nav from './Nav'
 import Form from './Form'
 import axios from 'axios'
-import OrderList from './OrderList'
 import Complete from './Complete'
 import * as yup from 'yup'
 
@@ -70,6 +69,7 @@ const App = () => {
     axios.post("https://reqres.in/api/users", form)
     .then((res) => {
       setPizza([res.data, ...pizza])
+      console.log(res.data)
       setForm(initialFormValues)
       history.push('/complete')
     })

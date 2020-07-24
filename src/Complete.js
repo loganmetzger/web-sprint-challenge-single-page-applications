@@ -12,7 +12,12 @@ export default function Complete(props) {
                 return(
                     <div> 
                         <h3>{za.name}</h3>
-                        <p>{za.size}</p>
+                        {
+                            (za.size === "s") ? <p>Small</p>
+                            : (za.size === "m") ? <p>Medium</p>
+                            : <p>Large</p>
+
+                        }
                         {za.pineapple && <p>Pineapple</p>}
                         {za.salami && <p>Salami</p>}
                         {za.anchovies && <p>Anchovies</p>}
