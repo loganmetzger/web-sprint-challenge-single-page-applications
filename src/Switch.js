@@ -13,6 +13,7 @@ const Switch = (props) => {
         type="checkbox"
         value={form.glutenFree}
         onChange={handleChange}
+        name="glutenFree"
       />
       <label
         className="react-switch-label"

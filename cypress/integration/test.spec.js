@@ -8,8 +8,8 @@ describe("Testing basics", () => {
     it("Can input text in name", () => {
         cy.get(".name-input")
         .click()
-        .type("Harrison SmallDick")
-        .should("have.value", "Harrison SmallDick")
+        .type("Harrison")
+        .should("have.value", "Harrison")
     })
     it("Can select pineapple", () => {
         cy.get(".pineapple")
