@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from 'react-router-dom'
 import Nav from './Nav'
 import Form from './Form'
 import axios from 'axios'
 import OrderList from './OrderList'
 import Complete from './Complete'
+import * as yup from 'yup'
 
 const initialFormValues = {
   name: '',
@@ -18,8 +19,29 @@ const initialFormValues = {
 const App = () => {
   const [form, setForm] = useState(initialFormValues)
   const [pizza, setPizza] = useState([])
+  const [errors, setErrors] = useState(initialFormValues)
+  const [disable, setDisable] = useState(true)
   let history = useHistory()
 
+  useEffect(() => {
+    formSchema.isValid(form)
+      .then(valid => setDisable(!valid))
+  }, [form])
+
+  const formSchema = yup.object().shape({
+    name: yup
+      .string()
+      .min(4, "Must be 4 characters long")
+      .required("Name is required"),
+  })
+
+  // const validateForm = (e) => {
+  //   yup
+  //     .reach(formSchema, e.target.name)
+  //     .validate(
+  //       e.target
+  //     )
+  // }
 
   const handleChange = (e) => {
     e.persist()
@@ -50,6 +72,7 @@ const App = () => {
             handleChange={handleChange} 
             form={form} 
             handleSubmit= {handleSubmit} 
+            disable={disable}
           />
         </Route>
         <Route path="/complete">
