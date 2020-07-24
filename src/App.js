@@ -84,6 +84,7 @@ const App = () => {
       <Switch>
         <Route path="/form" >
           <Form 
+            id="#form"
             handleChange={handleChange} 
             form={form} 
             handleSubmit= {handleSubmit} 

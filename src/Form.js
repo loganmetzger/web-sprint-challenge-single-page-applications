@@ -14,13 +14,14 @@ export default function Form(props) {
             <form onSubmit={handleSubmit}>
                 <label>Name:
                     <input
+                        className="name-input"
                         name="name" 
                         value={form.name}
                         onChange={handleChange}
                     />
                 </label>
                 <label>Size:
-                    <select name="size" value={form.size} onChange={handleChange}>
+                    <select className="size" name="size" value={form.size} onChange={handleChange}>
                         <option value="s">Small</option>
                         <option value="m">Medium</option>
                         <option value="l">Large</option>
@@ -29,6 +30,7 @@ export default function Form(props) {
                 <label>
                     Pineapple:
                     <input 
+                        className="pineapple"
                         type="checkbox" 
                         name="pineapple" 
                         checked={form.pineapple} 
@@ -38,6 +40,7 @@ export default function Form(props) {
                 <label>
                     Salami:
                     <input 
+                        className="salami"
                         type="checkbox" 
                         name="salami" 
                         value={form.salami}
@@ -47,6 +50,7 @@ export default function Form(props) {
                 <label>
                     Anchovie:
                     <input 
+                        className="anchovies"
                         type="checkbox" 
                         name="anchovies" 
                         value={form.anchovies}
@@ -56,13 +60,14 @@ export default function Form(props) {
                 <label>
                     Cheese:
                     <input 
+                        className="cheese"
                         type="checkbox" 
                         name="cheese" 
                         value={form.cheese}
                         onChange={handleChange}
                     />
                 </label>
-                <button disabled={disable} type='submit'>Submit Order!</button>
+                <button className="submit" disabled={disable} type='submit'>Submit Order!</button>
             </form>
         </div>
     )
