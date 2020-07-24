@@ -1,14 +1,19 @@
 import React from 'react'
 
-export default function Form() {
+export default function Form(props) {
+
+    const { 
+        form 
+    } = props
+
     return (
         <div>
             <form>
                 <label>Name:
-                    <input name="name" value="name" />
+                    <input name="name" value={form.name} />
                 </label>
                 <label>Size:
-                    <select name="size" value={sizeOfZa}>
+                    <select name="size" value={form.size}>
                         <option value="s">Small</option>
                         <option value="m">Medium</option>
                         <option value="l">Large</option>
@@ -16,19 +21,19 @@ export default function Form() {
                 </label>
                 <label>
                     Pineapple:
-                    <input type="checkbox" checked={pineapple} />
+                    <input type="checkbox" name="pineapple" checked={form.pineapple} />
                 </label>
                 <label>
                     Salami:
-                    <input type="checkbox" checked={salami} />
+                    <input type="checkbox" name="salami" />
                 </label>
                 <label>
                     Anchovie:
-                    <input type="checkbox" checked={anchovie} />
+                    <input type="checkbox" name="anchovies" />
                 </label>
                 <label>
                     Cheese:
-                    <input type="checkbox" checked={cheese} />
+                    <input type="checkbox" name="cheese" />
                 </label>
                 <button>Submit Order!</button>
             </form>
