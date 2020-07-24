@@ -3,7 +3,7 @@ import { Switch, Route, useHistory } from 'react-router-dom'
 import Nav from './Nav'
 import Form from './Form'
 import axios from 'axios'
-// import OrderList from './OrderList'
+import OrderList from './OrderList'
 import Complete from './Complete'
 
 const initialFormValues = {
@@ -34,7 +34,7 @@ const App = () => {
     .then((res) => {
       setPizza([res.data, ...pizza])
       setForm(initialFormValues)
-      history.pushState('/complete')
+      history.push('/complete')
     })
     .catch((err) => {
       console.log(err)
@@ -45,16 +45,15 @@ const App = () => {
     <>
       <Nav />
       <Switch>
-        <Route>
+        <Route path="/form" >
           <Form 
             handleChange={handleChange} 
             form={form} 
             handleSubmit= {handleSubmit} 
-            path="/form" 
           />
         </Route>
-        <Route>
-          <Complete path="/complete" />
+        <Route path="/complete">
+          <Complete pizza={pizza} />
         </Route>
       </Switch>
     </>
