@@ -1,7 +1,8 @@
 import React from "react";
-import { Switch, Route, useHistory } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import Nav from './Nav'
 import Form from './Form'
+import OrderList from './OrderList'
 
 
 const App = () => {
@@ -13,7 +14,7 @@ const App = () => {
           <Form path="/form" />
         </Route>
         <Route>
-          <
+          <OrderList path="/" />
         </Route>
       </Switch>
     </>
