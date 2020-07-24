@@ -5,7 +5,8 @@ export default function Form(props) {
     const { 
         form,
         handleChange,
-        handleSubmit 
+        handleSubmit,
+        disable 
     } = props
 
     return (
@@ -61,7 +62,7 @@ export default function Form(props) {
                         onChange={handleChange}
                     />
                 </label>
-                <button type='submit'>Submit Order!</button>
+                <button disabled={disable} type='submit'>Submit Order!</button>
             </form>
         </div>
     )

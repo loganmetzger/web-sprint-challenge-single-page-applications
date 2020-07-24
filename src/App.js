@@ -23,31 +23,46 @@ const App = () => {
   const [disable, setDisable] = useState(true)
   let history = useHistory()
 
-  useEffect(() => {
-    formSchema.isValid(form)
-      .then(valid => setDisable(!valid))
-  }, [form])
-
+  
   const formSchema = yup.object().shape({
     name: yup
       .string()
       .min(4, "Must be 4 characters long")
       .required("Name is required"),
-  })
+    size: yup
+      .string()
+      .required(),
+    pineapple: yup
+      .boolean(),
+    salami: yup
+      .boolean(),
+    anchovies: yup
+      .boolean(),
+    cheese: yup
+      .boolean()
+    })
+    
+    useEffect(() => {
+      formSchema.isValid(form)
+        .then(valid => setDisable(!valid))
+    }, [form])
 
-  // const validateForm = (e) => {
-  //   yup
-  //     .reach(formSchema, e.target.name)
-  //     .validate(
-  //       e.target
-  //     )
-  // }
+  const validateForm = (e) => {
+    yup
+      .reach(formSchema, e.target.name)
+      .validate(
+        e.target.type === "checkbox" ? e.target.checked : e.target.value
+      )
+      .then(() => setErrors({...errors, [e.target.name]: ""}))
+      .catch((err) => setErrors({...errors, [e.target.name]: err.errors}))
+  }
 
   const handleChange = (e) => {
     e.persist()
     e.target.type === "checkbox"
       ? setForm({...form, [e.target.name]: e.target.checked})
       : setForm({...form, [e.target.name]: e.target.value})
+    validateForm(e)
   }
 
   const handleSubmit = (e) => {
