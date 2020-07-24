@@ -4,12 +4,13 @@ export default function Form(props) {
 
     const { 
         form,
-        handleChange 
+        handleChange,
+        handleSubmit 
     } = props
 
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>Name:
                     <input
                         name="name" 
@@ -60,7 +61,7 @@ export default function Form(props) {
                         onChange={handleChange}
                     />
                 </label>
-                <button>Submit Order!</button>
+                <button type='submit'>Submit Order!</button>
             </form>
         </div>
     )

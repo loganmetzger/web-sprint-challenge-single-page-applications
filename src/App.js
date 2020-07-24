@@ -46,7 +46,12 @@ const App = () => {
       <Nav />
       <Switch>
         <Route>
-          <Form handleChange={handleChange} form={form} path="/form" />
+          <Form 
+            handleChange={handleChange} 
+            form={form} 
+            handleSubmit= {handleSubmit} 
+            path="/form" 
+          />
         </Route>
         <Route>
           <Complete path="/complete" />
